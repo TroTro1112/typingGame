@@ -7,15 +7,16 @@ public class test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.gameObject.GetComponent<FadeManager>().LoadScene("Game",1.0f);
+            this.gameObject.GetComponent<FadeManager>().LoadScene("Game", 1.0f);
+            this.gameObject.GetComponent<SoundManager>().VolumeChange();
         }
     }
 }
