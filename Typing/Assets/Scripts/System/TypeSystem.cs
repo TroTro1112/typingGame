@@ -1,9 +1,9 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-//ƒQ[ƒ€ƒVƒXƒeƒ€ŒnƒNƒ‰ƒX
+//ã‚²ãƒ¼ãƒ ã‚·ã‚¹ãƒ†ãƒ ç³»ã‚¯ãƒ©ã‚¹
 public class TypeSystem : MonoBehaviour
 {
     public string m_RememberStr;
