@@ -1,17 +1,16 @@
-using System.Collections;
+Ôªøusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    AudioSource audioSource;
-
+    AudioSource m_audioSource;
     [SerializeField] float m_Speed_VolumeDown = 0.1f;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioSource = FindObjectOfType<AudioSource>();
+        m_audioSource = FindObjectOfType<AudioSource>();
     }
 
     // Update is called once per frame
@@ -20,20 +19,20 @@ public class SoundManager : MonoBehaviour
 
     }
 
-    public void VolumeChange()
+    public void VolumeChange_Mute()
     {
-        StartCoroutine("VolumeDown");
+        StartCoroutine("Down_Volume");
     }
 
-    IEnumerator VolumeDown()
+    IEnumerator Down_Volume()
     {
-        while (audioSource.volume > 0)
+        while (m_audioSource.volume > 0)
         {
-            audioSource.volume -= 0.1f;
+            m_audioSource.volume -= 0.1f;
             yield return new WaitForSeconds(0.1f);
 
-            // ÉIÅ[ÉfÉBÉIÉ\Å[ÉXÇ™Ç»Ç©Ç¡ÇΩÇÁ
-            if (audioSource == null) yield break;
+            // „Ç™„Éº„Éá„Ç£„Ç™„ÇΩ„Éº„Çπ„Åå„Å™„Åã„Å£„Åü„Çâ
+            if (m_audioSource == null) yield break;
         }
     }
 }

@@ -54,8 +54,8 @@ public class UIManager : MonoBehaviour
         {
             this.gameObject.GetComponent<FadeManager>().LoadScene("Game", 0.8f);
 
-            // 音量を下げる
-            this.gameObject.GetComponent<SoundManager>().VolumeChange();
+            // 音量を0にする
+            this.gameObject.GetComponent<SoundManager>().VolumeChange_Mute();
 
             m_IsPress = true;
         }
