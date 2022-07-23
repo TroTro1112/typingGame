@@ -8,8 +8,9 @@ public class SoundManager : MonoBehaviour
     AudioSource m_audioSource;
     [SerializeField] float m_Speed_VolumeDown = 0.1f;
 
-    // BGMスライダー
-    [SerializeField] Slider m_Slider_BGM;
+    // 音量スライダー
+    [SerializeField] Slider m_Slider_BGM;   // BGM
+    [SerializeField] Slider m_Slider_SE;    // SE
 
     // ミュートONOFF
     bool m_IsMute = false;
@@ -23,12 +24,15 @@ public class SoundManager : MonoBehaviour
         float max = 100f;
         float now = 100f;
 
-        //スライダーの最大値の設定
+        //スライダーの最大値・最小値の設定
         m_Slider_BGM.maxValue = max;
+        m_Slider_BGM.minValue = 0f;
+        m_Slider_SE.maxValue = max;
+        m_Slider_SE.minValue = 0f;
 
         //スライダーの現在値の設定
         m_Slider_BGM.value = now;
-        m_Slider_BGM.minValue = 0f;
+        m_Slider_SE.value = now;
     }
 
     // Update is called once per frame
@@ -37,6 +41,7 @@ public class SoundManager : MonoBehaviour
         if (m_IsMute == true) return;
 
         m_audioSource.volume = (m_Slider_BGM.value/100.0f);
+        m_audioSource.volume = (m_Slider_SE.value/100.0f);
     }
 
     public void VolumeChange_Mute()
