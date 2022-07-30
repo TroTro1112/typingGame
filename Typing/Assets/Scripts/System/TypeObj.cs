@@ -18,6 +18,8 @@ public class TypeObj : MonoBehaviour
 
     private Dictionary m_Dictionary;
 
+    private Typing m_Typing;
+
     private int m_EnterCount;
 
     private const int m_Decrement = 1;
@@ -38,13 +40,14 @@ public class TypeObj : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        ChangeText();
+        ChangeText("kakikukeko", "かきくけこ");
 
         m_System = FindObjectOfType<TypeSystem>();
         m_Dictionary = FindObjectOfType<Dictionary>();
+        m_Typing = FindObjectOfType<Typing>();
 
         //m_System.SetInputString(m_Dictionary.GetWord());
-       
+
         //m_InputStr.text = m_System.GetInputString();
     }
 
@@ -59,15 +62,25 @@ public class TypeObj : MonoBehaviour
                 m_EnterCount++;
             }
         }
+
+
+        //次の問題
+        if (m_Typing.CorretShare)
+        {
+            ChangeText("tatituteto", "たちつてと");
+            m_Typing.CorretShare = false;
+            m_Typing.TextShare.text = "";
+        }
+
         //m_System.SetInputString(m_Dictionary.GetWord());
         //m_InputStr.text = m_System.GetInputString();
         //Debug.Log(m_EnterCount);
     }
 
-    void ChangeText()
+    void ChangeText(string roma, string kana)
     {
-        m_ShowStr.text = "kakikukeko";
-        m_InputStr.text = "かきくけこ";
+        m_ShowStr.text = roma;
+        m_InputStr.text = kana;
     }
 
 }
