@@ -52,10 +52,14 @@ public class UIManager : MonoBehaviour
         // シーン遷移
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            this.gameObject.GetComponent<FadeManager>().LoadScene("Game", 0.8f);
+            // SEを鳴らす
+            this.gameObject.GetComponent<SoundManager>().PlaySE();
 
             // 音量を0にする
             this.gameObject.GetComponent<SoundManager>().VolumeChange_Mute();
+
+            // シーン遷移
+            this.gameObject.GetComponent<FadeManager>().LoadScene("Game", 0.8f);
 
             m_IsPress = true;
         }

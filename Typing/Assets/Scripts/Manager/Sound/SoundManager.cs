@@ -5,8 +5,14 @@ using UnityEngine.UI;
 
 public class SoundManager : MonoBehaviour
 {
-    AudioSource m_audioSource;
+    // オーディオソース
+    [SerializeField] AudioSource m_AudioSource_BGM; // BGM
+    [SerializeField] AudioSource m_AudioSource_SE;  // SE
+    [SerializeField] AudioClip m_AudioClip_Click_SE;    // クリックSE
+
+    // 音量の落ちる速度
     [SerializeField] float m_Speed_VolumeDown = 0.1f;
+
 
     // 音量スライダー
     [SerializeField] Slider m_Slider_BGM;   // BGM
@@ -19,7 +25,7 @@ public class SoundManager : MonoBehaviour
     void Start()
     {
         // オーディオソース
-        m_audioSource = FindObjectOfType<AudioSource>();
+        m_AudioSource_SE = FindObjectOfType<AudioSource>();
 
         float max = 100f;
         float now = 100f;
@@ -40,8 +46,16 @@ public class SoundManager : MonoBehaviour
     {
         if (m_IsMute == true) return;
 
-        m_audioSource.volume = (m_Slider_BGM.value/100.0f);
-        m_audioSource.volume = (m_Slider_SE.value/100.0f);
+        m_AudioSource_BGM.volume = (m_Slider_BGM.value / 100.0f);
+        m_AudioSource_SE.volume = (m_Slider_SE.value / 100.0f);
+    }
+
+    // SE関数の原型
+    public void PlaySE()
+    {
+        // クリックSE
+        m_AudioSource_SE.PlayOneShot(m_AudioClip_Click_SE);
+        Debug.Log("SE");
     }
 
     public void VolumeChange_Mute()
@@ -53,13 +67,13 @@ public class SoundManager : MonoBehaviour
 
     IEnumerator Down_Volume()
     {
-        while (m_audioSource.volume > 0)
+        while (m_AudioSource_SE.volume > 0f)
         {
-            m_audioSource.volume -= m_Speed_VolumeDown;
+            m_AudioSource_SE.volume -= m_Speed_VolumeDown;
             yield return new WaitForSeconds(m_Speed_VolumeDown);
 
             // オーディオソースがなかったら
-            if (m_audioSource == null) yield break;
+            if (m_AudioSource_SE == null) yield break;
         }
     }
 }
