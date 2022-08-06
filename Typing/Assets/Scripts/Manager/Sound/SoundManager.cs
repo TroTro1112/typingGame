@@ -24,9 +24,6 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // オーディオソース
-        m_AudioSource_SE = FindObjectOfType<AudioSource>();
-
         float max = 100f;
         float now = 100f;
 

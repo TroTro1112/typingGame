@@ -28,6 +28,9 @@ public class UIManager : MonoBehaviour
     {
         // 早期リターン、シーン遷移された
         if (m_IsPress) return;
+        // 早期リターン、設定画面が非表示であれば
+        if (GameObject.Find("GameManager").GetComponent<SettingManager>().GetSettingPanelActive) return;
+
 
         //テキストの透明度を変更する
         m_Text_Press.color = new Color(m_Color.r, m_Color.g, m_Color.b, m_Alpha);

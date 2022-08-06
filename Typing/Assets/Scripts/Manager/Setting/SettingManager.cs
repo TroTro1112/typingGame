@@ -6,6 +6,10 @@ public class SettingManager : MonoBehaviour
 {
     // セレクト画面
     GameObject m_SettingPanel;
+    public bool GetSettingPanelActive
+    {
+        get{ return m_SettingPanel.activeSelf; }
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -19,10 +23,17 @@ public class SettingManager : MonoBehaviour
     {
     }
 
-    // 設定選択画面へ
+    // 設定選択画面を表示
     public void OnClick_ChangeScreen_Setting()
     {
         // 表示非表示を表示
         m_SettingPanel.SetActive(true);
+    }
+
+    // 設定選択画面を表示
+    public void OnClick_ChangeScreen_Title()
+    {
+        // 表示非表示を表示
+        m_SettingPanel.SetActive(false);
     }
 }
