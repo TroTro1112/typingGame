@@ -24,7 +24,17 @@ public class TypeObj : MonoBehaviour
 
     private const int m_Decrement = 1;
 
+    private int m_wordcount = 0;
 
+    private string[] m_word =
+    {
+        "sasisuseso","さしすせそ",
+        "tatituteto","たちつてと",
+        "naninuneno","なにぬねの",
+        "pari","パリ",
+        "mirano","ミラノ",
+        "samurai","さむらい",
+    };
     //次に行く用
     public int EnterCountShare
     {
@@ -67,9 +77,15 @@ public class TypeObj : MonoBehaviour
         //次の問題
         if (m_Typing.CorretShare)
         {
-            ChangeText("tatituteto", "たちつてと");
-            m_Typing.CorretShare = false;
-            m_Typing.TextShare.text = "";
+            if (m_wordcount < m_word.Length)
+            {
+                Debug.Log((m_word[m_wordcount]));
+                ChangeText(m_word[m_wordcount], m_word[m_wordcount + 1]);
+                m_Typing.CorretShare = false;
+                m_Typing.TextShare.text = "";
+                m_wordcount += 2;
+            }
+            Debug.Log(m_Typing.CorretShare);
         }
 
         //m_System.SetInputString(m_Dictionary.GetWord());
