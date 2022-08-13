@@ -36,6 +36,7 @@ public class Typing : MonoBehaviour
     {
         foreach (string key in keys)
         {
+            m_text.color = Color.black;
             //一斉削除
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -48,7 +49,7 @@ public class Typing : MonoBehaviour
                 m_text.text += key;
                 if (m_Type.ShowStrShare.text == m_text.text)
                 {
-                    m_text.color = Color.white;
+                    //m_text.color = Color.white;
                     m_correct = true;
                 }
             }
