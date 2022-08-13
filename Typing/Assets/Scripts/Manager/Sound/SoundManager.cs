@@ -21,6 +21,9 @@ public class SoundManager : MonoBehaviour
     // ミュートONOFF
     bool m_IsMute = false;
 
+    // クリック判定
+    bool m_IsClick = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +48,19 @@ public class SoundManager : MonoBehaviour
 
         m_AudioSource_BGM.volume = (m_Slider_BGM.value / 100.0f);
         m_AudioSource_SE.volume = (m_Slider_SE.value / 100.0f);
+
+        if (Input.GetMouseButton(0))
+        {
+            if(m_IsClick == false)
+            {
+                m_IsClick = true;
+                PlaySE();
+            }
+        }
+        else
+        {
+            m_IsClick = false;
+        }
     }
 
     // SE関数の原型
@@ -52,7 +68,7 @@ public class SoundManager : MonoBehaviour
     {
         // クリックSE
         m_AudioSource_SE.PlayOneShot(m_AudioClip_Click_SE);
-        Debug.Log("SE");
+        Debug.Log("PlaySE");
     }
 
     public void VolumeChange_Mute()
