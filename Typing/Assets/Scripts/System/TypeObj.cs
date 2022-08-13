@@ -59,6 +59,9 @@ public class TypeObj : MonoBehaviour
         //m_System.SetInputString(m_Dictionary.GetWord());
 
         //m_InputStr.text = m_System.GetInputString();
+
+        Debug.Log("Value_BGM " + PlayerPrefs.GetFloat("Value_BGM", 101f));
+        Debug.Log("Value_SE " + PlayerPrefs.GetFloat("Value_SE", 101f));
     }
 
     // Update is called once per frame

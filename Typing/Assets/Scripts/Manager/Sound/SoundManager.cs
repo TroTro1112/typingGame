@@ -44,14 +44,20 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // ミュート
         if (m_IsMute == true) return;
 
         m_AudioSource_BGM.volume = (m_Slider_BGM.value / 100.0f);
         m_AudioSource_SE.volume = (m_Slider_SE.value / 100.0f);
 
+        // 音量設定を保存
+        PlayerPrefs.SetFloat("Value_BGM", m_Slider_BGM.value);
+        PlayerPrefs.SetFloat("Value_SE", m_Slider_SE.value);
+
+        // クリックSE
         if (Input.GetMouseButton(0))
         {
-            if(m_IsClick == false)
+            if (m_IsClick == false)
             {
                 m_IsClick = true;
                 PlaySE();
@@ -80,13 +86,17 @@ public class SoundManager : MonoBehaviour
 
     IEnumerator Down_Volume()
     {
-        while (m_AudioSource_SE.volume > 0f)
+        while (
+            m_AudioSource_SE.volume > 0f ||
+            m_AudioSource_BGM.volume > 0f)
         {
             m_AudioSource_SE.volume -= m_Speed_VolumeDown;
+            m_AudioSource_BGM.volume -= m_Speed_VolumeDown;
             yield return new WaitForSeconds(m_Speed_VolumeDown);
 
             // オーディオソースがなかったら
-            if (m_AudioSource_SE == null) yield break;
+            if (m_AudioSource_SE == null ||
+                m_AudioSource_BGM == null) yield break;
         }
     }
 }
