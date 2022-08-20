@@ -30,7 +30,7 @@ public class Timer : MonoBehaviour
 
         if (m_time < 0) 
         {
-
+            m_time = 0;
         }
     }
 }
