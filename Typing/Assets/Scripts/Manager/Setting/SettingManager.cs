@@ -12,7 +12,7 @@ public class SettingManager : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Start()    // 設定画面を非表示にするため、Awakeではない
     {
         m_SettingPanel = GameObject.Find("Canvas/Setting");
         m_SettingPanel.SetActive(false);

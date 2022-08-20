@@ -15,8 +15,8 @@ public class SoundManager : MonoBehaviour
 
 
     // 音量スライダー
-    [SerializeField] Slider m_Slider_BGM;   // BGM
-    [SerializeField] Slider m_Slider_SE;    // SE
+    Slider m_Slider_BGM;   // BGM
+    Slider m_Slider_SE;    // SE
 
     // ミュートONOFF
     bool m_IsMute = false;
@@ -25,11 +25,16 @@ public class SoundManager : MonoBehaviour
     bool m_IsClick = false;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
+        // スライダー
+        m_Slider_BGM=GameObject.
+            Find("Canvas/Setting/SettingList/Sound/BGM/Slider_BGM").GetComponent<Slider>();
+        m_Slider_SE=GameObject.
+            Find("Canvas/Setting/SettingList/Sound/SE/Slider_SE").GetComponent<Slider>();
+
         float max = 100f;
         float now = 100f;
-
         //スライダーの最大値・最小値の設定
         m_Slider_BGM.maxValue = max;
         m_Slider_BGM.minValue = 0f;

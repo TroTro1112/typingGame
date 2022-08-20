@@ -14,7 +14,7 @@ public class UIManager : MonoBehaviour
     float m_AlphaSpeed;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         m_Text_Press = GameObject.Find("Text_Press").GetComponent<Text>();
         m_IsAlpha = false;
