@@ -25,12 +25,12 @@ public class Timer : MonoBehaviour
         //ê›íËâÊñ Ç≈60ïbÇæÇ¡ÇΩÇÁ
         //if()
 
-        m_time -= Time.deltaTime;
+ 
         m_timerText.text = m_time.ToString("0.00");
 
-        if (m_time < 0) 
+        if (m_time >= 0) 
         {
-            m_time = 0;
+            m_time -= Time.deltaTime;
         }
     }
 }
