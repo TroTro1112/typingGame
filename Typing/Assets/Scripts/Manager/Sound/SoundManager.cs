@@ -17,6 +17,9 @@ public class SoundManager : MonoBehaviour
     // 音量スライダー
     Slider m_Slider_BGM;   // BGM
     Slider m_Slider_SE;    // SE
+    // 音量スライダーの格納オブジェクト
+    [SerializeField] GameObject m_obj_BGM;  // BGM
+    [SerializeField] GameObject m_obj_SE;   // SE
 
     // ミュートONOFF
     bool m_IsMute = false;
@@ -28,10 +31,8 @@ public class SoundManager : MonoBehaviour
     void Awake()
     {
         // スライダー
-        m_Slider_BGM=GameObject.
-            Find("Canvas/Setting/SettingList/Sound/BGM/Slider_BGM").GetComponent<Slider>();
-        m_Slider_SE=GameObject.
-            Find("Canvas/Setting/SettingList/Sound/SE/Slider_SE").GetComponent<Slider>();
+        m_Slider_BGM = m_obj_BGM.GetComponent<Slider>();
+        m_Slider_SE = m_obj_SE.GetComponent<Slider>();
 
         float max = 100f;
         float now = 100f;
