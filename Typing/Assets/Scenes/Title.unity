@@ -463,6 +463,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_AlphaSpeed: 0.6
+  m_togRoma: {fileID: 755167158831532062}
+  m_togKana: {fileID: 755167159509719663}
+  m_togKeyBoard: {fileID: 755167158495021921}
 --- !u!82 &1978690438
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1044,7 +1047,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &755167158495021935
 GameObject:
   m_ObjectHideFlags: 0
@@ -1600,7 +1603,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &755167159112825627
 GameObject:
   m_ObjectHideFlags: 0
@@ -2064,7 +2067,7 @@ MonoBehaviour:
   onValueChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!1 &755167159512001724
 GameObject:
   m_ObjectHideFlags: 0
