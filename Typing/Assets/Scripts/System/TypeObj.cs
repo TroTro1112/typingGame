@@ -26,6 +26,8 @@ public class TypeObj : MonoBehaviour
 
     private int m_wordcount = 0;
 
+    private bool m_clearFlg = false;
+
     private string[] m_word =
     {
         "sasisuseso","さしすせそ",
@@ -34,6 +36,7 @@ public class TypeObj : MonoBehaviour
         "pari","パリ",
         "mirano","ミラノ",
         "samurai","さむらい",
+        "",""
     };
     //次に行く用
     public int EnterCountShare
@@ -46,7 +49,10 @@ public class TypeObj : MonoBehaviour
     {
         get { return m_ShowStr; }
     }
-
+    public bool m_clearFlgShaere
+    {
+        get { return m_clearFlg; }
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -91,6 +97,13 @@ public class TypeObj : MonoBehaviour
             Debug.Log(m_Typing.CorretShare);
         }
 
+        if (m_word.Length == m_wordcount)
+        {
+            Debug.Log("クリアだよー");
+            Debug.Log("カウント:" + m_wordcount);
+            m_clearFlg = true;
+            PlayerPrefs.SetInt("clear", 1);
+        }
         //m_System.SetInputString(m_Dictionary.GetWord());
         //m_InputStr.text = m_System.GetInputString();
         //Debug.Log(m_EnterCount);
