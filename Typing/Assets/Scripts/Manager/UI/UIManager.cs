@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,11 +12,6 @@ public class UIManager : MonoBehaviour
     float m_Alpha;
     Color m_Color;
     [SerializeField] float m_AlphaSpeed;
-
-    // 表示設定
-    [SerializeField] Toggle m_togRoma;
-    [SerializeField] Toggle m_togKana;
-    [SerializeField] Toggle m_togKeyBoard;
 
     // Start is called before the first frame update
     void Awake()
@@ -35,11 +31,6 @@ public class UIManager : MonoBehaviour
         // 早期リターン、設定画面が非表示
         if (GameObject.Find("GameManager").GetComponent<SettingManager>().GetSettingPanelActive) return;
 
-
-        // 音量設定を保存
-        PlayerPrefs.SetInt("Display_Roma", m_togRoma.isOn == true ? 1 : 0);
-        PlayerPrefs.SetInt("Display_Kana", m_togKana.isOn == true ? 1 : 0);
-        PlayerPrefs.SetInt("Display_KeyBoard", m_togKeyBoard.isOn == true ? 1 : 0);
 
         //テキストの透明度を変更する
         m_Text_Press.color = new Color(m_Color.r, m_Color.g, m_Color.b, m_Alpha);
