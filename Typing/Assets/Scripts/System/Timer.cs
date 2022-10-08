@@ -18,7 +18,24 @@ public class Timer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_time = 30.0f;
+        //İ’è‰æ–Ê‚Å30•b‚¾‚Á‚½‚ç
+        if (PlayerPrefs.GetString("Time") == "Toggle_30")
+        {
+            m_time = 30.0f;
+        }
+
+        //İ’è‰æ–Ê‚Å60•b‚¾‚Á‚½‚ç
+        if (PlayerPrefs.GetString("Time") == "Toggle_60")
+        {
+            m_time = 60.0f;
+        }
+
+        //İ’è‰æ–Ê‚Å120•b‚¾‚Á‚½‚ç
+        if (PlayerPrefs.GetString("Time") == "Toggle_120")
+        {
+            m_time = 120.0f;
+        }
+
         m_timerText.text = "0.00";
         m_timeUp = false;
     }
@@ -26,12 +43,6 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //İ’è‰æ–Ê‚Å30•b‚¾‚Á‚½‚ç
-        //if()
-
-        //İ’è‰æ–Ê‚Å60•b‚¾‚Á‚½‚ç
-        //if()
-
  
         m_timerText.text = m_time.ToString("0.00");
 

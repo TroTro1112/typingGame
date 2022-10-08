@@ -36,7 +36,7 @@ public class SettingManager : MonoBehaviour
         m_SettingPanel.SetActive(true);
     }
 
-    // 設定選択画面を表示
+    // タイトル画面を表示
     public void OnClick_ChangeScreen_Title()
     {
         // 設定保存
@@ -47,8 +47,9 @@ public class SettingManager : MonoBehaviour
             PlayerPrefs.SetInt("Display_KeyBoard", m_togKeyBoard.isOn == true ? 1 : 0);
 
             // 時間設定を保存
-            Debug.Log(m_togGroupu_Time.ActiveToggles().FirstOrDefault().name);
+
             PlayerPrefs.SetString("Time", m_togGroupu_Time.ActiveToggles().FirstOrDefault().name);
+            Debug.Log("時間指定"+m_togGroupu_Time.ActiveToggles().FirstOrDefault().name);
         }
 
         // 表示非表示を表示
