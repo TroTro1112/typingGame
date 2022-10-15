@@ -13,6 +13,9 @@ public class Typing : MonoBehaviour
     //判定用の文字列取得用
     private TypeObj m_Type;
     private bool m_correct;
+
+    private int m_missCount;
+    private bool m_missFlg;
     public bool CorretShare
     {
         set { m_correct = value; }
@@ -29,6 +32,8 @@ public class Typing : MonoBehaviour
     {
         m_Type = FindObjectOfType<TypeObj>();
         m_correct = false;
+        m_missCount = 0;
+        m_missFlg = false;
     }
 
     // Update is called once per frame
@@ -40,7 +45,17 @@ public class Typing : MonoBehaviour
             //一斉削除
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                m_text.text = "";
+                if (!m_missFlg)
+                {
+                    m_text.text = "";
+                    m_missFlg = true;
+                    m_missCount++;
+                    PlayerPrefs.SetInt("miss", m_missCount);
+                }
+            }
+            else
+            {
+                m_missFlg = false;
             }
 
             //入力

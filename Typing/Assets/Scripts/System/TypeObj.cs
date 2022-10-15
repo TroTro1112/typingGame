@@ -26,6 +26,7 @@ public class TypeObj : MonoBehaviour
 
     private int m_wordcount = 0;
 
+    private int m_clearCount = 0;
     private bool m_clearFlg = false;
 
     private string[] m_word =
@@ -93,6 +94,7 @@ public class TypeObj : MonoBehaviour
                 m_Typing.CorretShare = false;
                 m_Typing.TextShare.text = "";
                 m_wordcount += 2;
+                m_clearCount++;
             }
             Debug.Log(m_Typing.CorretShare);
         }
@@ -104,6 +106,7 @@ public class TypeObj : MonoBehaviour
             m_clearFlg = true;
             PlayerPrefs.SetInt("clear", 1);
         }
+        PlayerPrefs.SetInt("clearcount", m_clearCount);
         //m_System.SetInputString(m_Dictionary.GetWord());
         //m_InputStr.text = m_System.GetInputString();
         //Debug.Log(m_EnterCount);
